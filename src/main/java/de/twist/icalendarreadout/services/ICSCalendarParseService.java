@@ -8,19 +8,19 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import de.twist.icalendarreadout.models.GameSchedule;
+import de.twist.icalendarreadout.models.GameData;
 
 @Service
 public class ICSCalendarParseService {
 
 	
-	 public List<GameSchedule> parseCalendarEventsToList() {
+	 public List<GameData> parseCalendarEventsToList() {
 		 return null;
 	 }
 	 
 	 
 	 public File getSystemFile() {
-		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26--*03-2023.ics");
+		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics");
 		File file = new File("");
 		
 		try {
