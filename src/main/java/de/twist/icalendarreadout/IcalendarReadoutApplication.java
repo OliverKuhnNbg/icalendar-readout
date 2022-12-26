@@ -1,19 +1,8 @@
 package de.twist.icalendarreadout;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.List;
-import java.util.Scanner;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 import de.twist.icalendarreadout.services.ICSCalendarParseService;
 
@@ -46,24 +35,24 @@ public class IcalendarReadoutApplication {
 		
 	}
 	
-	@Bean
-    List init(ICSCalendarParseService parseService) {
-        
-            System.out.println("test");
-            File file = parseService.getSystemFile();
-            
-            Scanner sc;
-			try {
-				sc = new Scanner(file);
-				
-				while (sc.hasNextLine()) {
-					System.out.println(sc.nextLine());
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			System.out.println("\n" + file.length());
-			return null;
-    }
+//	@Bean
+//    List init(ICSCalendarParseService parseService) {
+//        
+//            System.out.println("test");
+//            File file = parseService.getSystemFile();
+//            
+//            Scanner sc;
+//			try {
+//				sc = new Scanner(file);
+//				
+//				while (sc.hasNextLine()) {
+//					System.out.println(sc.nextLine());
+//				}
+//			} catch (FileNotFoundException e) {
+//				e.printStackTrace();
+//			}
+//			System.out.println("\n" + file.length());
+//			return null;
+//    }
 
 }

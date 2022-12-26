@@ -5,11 +5,7 @@ public class Game {
 	private String homeTeam;
 	private String guestTeam;
 	private String location;
-	
-	public Game() {
-	}
 
-	
 	public String getHomeTeam() {
 		return homeTeam;
 	}
