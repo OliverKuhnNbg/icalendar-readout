@@ -87,7 +87,7 @@ public class ICSCalendarParseService {
 			e.printStackTrace();
 		}
 		
-		return eventList.size() > 1 ? eventList : null;
+		return eventList.size() > 1 ? eventList : new ArrayList<>();
 	}
 
 	private GameData parseData(int row, String currentLine, GameData gameData) {
