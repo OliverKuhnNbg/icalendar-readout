@@ -53,6 +53,10 @@ public class ICSCalendarParseService {
 					System.out.println(gameData.getDtStamp());
 					System.out.println(gameData.getDtStart());
 					System.out.println(gameData.getDtEnd());
+					
+					System.out.println("\n\t summery");
+					System.out.println(gameData.getSummery().getHomeTeam());
+					System.out.println(gameData.getSummery().getGuestTeam());
 				}
 
 			}
@@ -106,6 +110,7 @@ public class ICSCalendarParseService {
 			
 			System.out.println("\t homeTeam: " + game.getHomeTeam());
 			System.out.println("\tguestTeam: " + game.getGuestTeam());
+			gameData.setSummery(game);
 			
 		} else if (row == 5) { // LOCATION -- adress data
 			System.out.println(row + " " + currentLine);
