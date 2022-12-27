@@ -4,12 +4,8 @@ public class Game {
 
 	private String homeTeam;
 	private String guestTeam;
-	private String location;
-	
-	public Game() {
-	}
+	private GameLocation location;
 
-	
 	public String getHomeTeam() {
 		return homeTeam;
 	}
@@ -18,7 +14,7 @@ public class Game {
 		return guestTeam;
 	}
 
-	public String getLocation() {
+	public GameLocation getLocation() {
 		return location;
 	}
 
@@ -31,7 +27,7 @@ public class Game {
 		this.guestTeam = guestTeam;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(GameLocation location) {
 		this.location = location;
 	}
 }
