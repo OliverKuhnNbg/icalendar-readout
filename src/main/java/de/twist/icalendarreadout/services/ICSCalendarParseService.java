@@ -130,24 +130,28 @@ public class ICSCalendarParseService {
 				System.out.println("\t   city: "+ game.getLocation().getCity());
 			}
 		} else if (row == 6) { // UID
-//			System.out.println(row + " " + currentLine);
 		}
 		
 		return gameData;
 	}
 		
 	private Date getDateFromString(String dataString) {
+		// generate LocalDate
 		String[] dateStringArr = dataString.split("T");
 		String dateString = dateStringArr[0];
 		LocalDate localDate = LocalDate.parse(dateString, DateTimeFormatter.BASIC_ISO_DATE);
 		
+		// generate LocalTime
 		String timeString = dateStringArr[1].replace("Z", "");
-
 		timeString = timeString.substring(0, 2) + ":" + timeString.substring(2, 4) + ":" + timeString.substring(4, 6);
 		LocalTime localTime = LocalTime.parse(timeString);
+		
+		return getDateFromLocalDateAndLocalTime(localDate, localTime);
+	}
+	
+	private Date getDateFromLocalDateAndLocalTime (LocalDate localDate, LocalTime localTime) {
 		LocalDateTime ldt = LocalDateTime.of(localDate, localTime);
 		Date date = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-		
 		return date;
 	}
 	
