@@ -27,6 +27,7 @@ public class ICSCalendarParseService {
 	
 	private GameData gameData = new GameData();
 
+	/** get File */
 	public File getSystemFile() {
 		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics");
 		File file = new File("");
@@ -40,6 +41,7 @@ public class ICSCalendarParseService {
 		return file;
 	}
 	
+	/** parse File and generate Game Data List */
 	public List<GameData> parseCalendarEventsToList(File file) {
 		List<GameData> eventList = new ArrayList<>();
 
@@ -57,9 +59,7 @@ public class ICSCalendarParseService {
 					System.out.println("\n\teventStart");
 				}
 
-				// --- all lines without single shedule start line "BEGIN:VEVENT" ---
 				if (i > 4 && j > 0) {
-					// filter out single data
 					gameData = parseData(j, currentLine, gameData);
 				}
 
@@ -90,12 +90,12 @@ public class ICSCalendarParseService {
 		return eventList.size() > 1 ? eventList : new ArrayList<>();
 	}
 
+	/** parse data */
 	private GameData parseData(int row, String currentLine, GameData gameData) {
 		String dataString = "";
 		GameLocation gameLocation = new GameLocation();
 		Game game = new Game();
 
-		// parse data
 		if (row == 1) { // STAMP - updated date of file
 			dataString = splitDataString(currentLine);
 			
@@ -137,19 +137,19 @@ public class ICSCalendarParseService {
 				gameLocation = new GameLocation();
 				gameData.getSummery().setLocation(gameLocation);
 			}
-		} else if (row == 6) { // UID
-		}
+		} /*else if (row == 6) { // UID
+		} */
 		
 		return gameData;
 	}
-		
+	
+	/** generate LocalDate & generate LocalTime	*/
 	private Date getDateFromString(String dataString) {
-		// generate LocalDate
+		
 		String[] dateStringArr = dataString.split("T");
 		String dateString = dateStringArr[0];
 		LocalDate localDate = LocalDate.parse(dateString, DateTimeFormatter.BASIC_ISO_DATE);
 		
-		// generate LocalTime
 		String timeString = dateStringArr[1].replace("Z", "");
 		timeString = timeString.substring(0, 2) + ":" + timeString.substring(2, 4) + ":" + timeString.substring(4, 6);
 		LocalTime localTime = LocalTime.parse(timeString);
@@ -157,12 +157,14 @@ public class ICSCalendarParseService {
 		return getDateFromLocalDateAndLocalTime(localDate, localTime);
 	}
 	
+	/** generate Date */
 	private Date getDateFromLocalDateAndLocalTime (LocalDate localDate, LocalTime localTime) {
 		LocalDateTime ldt = LocalDateTime.of(localDate, localTime);
 		Date date = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 		return date;
 	}
-	
+
+	/** seperate data from current line string */
 	private String splitDataString(String currentLine) {
 		String [] arr = currentLine.split(":");
 		

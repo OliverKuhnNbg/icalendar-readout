@@ -24,7 +24,7 @@ public class GameSheduleController {
 		File gameSheduleFile = parseService.getSystemFile();
 		List<GameData> eventList = parseService.parseCalendarEventsToList(gameSheduleFile);
 		
-		System.out.println("\namount of events: "+eventList.size());
+		System.out.println("\namount of events: " + eventList.size());
 		System.out.println(eventList.get(49).getSummery().getLocation().getCity());
 		return "<b>Oli</b>";
 	}
