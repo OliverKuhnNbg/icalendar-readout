@@ -21,12 +21,12 @@ public class GameSheduleController {
 	
 	@GetMapping(value="/get-all-game-dates")
 	public String getAllGameDates() {
-		System.out.println("\n\ntest call all games");
 		System.out.println(parseService.getSystemFile().exists() + "\n\n");
 		File gameSheduleFile = parseService.getSystemFile();
-		parseService.parseCalendarEventsToList(gameSheduleFile);
+		List<GameData> eventList = parseService.parseCalendarEventsToList(gameSheduleFile);
 		
-		List<GameData> list = new ArrayList<>();
+		System.out.println("\namount of events: "+eventList.size());
+		System.out.println(eventList.get(49).getSummery().getLocation().getCity());
 		return "<b>Oli</b>";
 	}
 }

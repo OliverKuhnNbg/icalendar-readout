@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,21 @@ public class ICSCalendarParseService {
 	
 	private GameData gameData = new GameData();
 
+	public File getSystemFile() {
+		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics");
+		File file = new File("");
+
+		try {
+			file = resource.getFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return file;
+	}
+	
 	public List<GameData> parseCalendarEventsToList(File file) {
+		List<GameData> eventList = new ArrayList<>();
 
 		try {
 			FileReader fileReader = new FileReader(file);
@@ -47,7 +62,7 @@ public class ICSCalendarParseService {
 					// filter out single data
 					gameData = parseData(j, currentLine, gameData);
 				}
-				
+
 				if (currentLine.equals("END:VEVENT")) {
 					System.out.println("\n\t GameDate-Obj");
 					System.out.println(gameData.getDtStamp());
@@ -57,49 +72,47 @@ public class ICSCalendarParseService {
 					System.out.println("\n\t summery");
 					System.out.println(gameData.getSummery().getHomeTeam());
 					System.out.println(gameData.getSummery().getGuestTeam());
+					System.out.println("\n\t location");
+					System.out.println(gameData.getSummery().getLocation().getCity());
+					System.out.println(gameData.getSummery().getLocation().getZip());
+					System.out.println(gameData.getSummery().getLocation().getStreet());
+					eventList.add(gameData);
 				}
-
 			}
-			
+
 			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+		return eventList.size() > 1 ? eventList : null;
 	}
 
 	private GameData parseData(int row, String currentLine, GameData gameData) {
 		String dataString = "";
 		GameLocation gameLocation = new GameLocation();
 		Game game = new Game();
-		
+
 		// parse data
 		if (row == 1) { // STAMP - updated date of file
 			dataString = splitDataString(currentLine);
 			
 			Date date = getDateFromString(dataString);
 			gameData.setDtStamp(date);
-			
-			System.out.println(row + " date: " + gameData.getDtStamp());
 		} else if (row == 2) { // START
 			dataString = splitDataString(currentLine);
 			
 			Date date = getDateFromString(dataString);
 			gameData.setDtStart(date);
-			
-			System.out.println(row + " date: " + gameData.getDtStart());
 		} else if (row == 3) { // END
 			dataString = splitDataString(currentLine);
 			
 			Date date = getDateFromString(dataString);
 			gameData.setDtEnd(date);
-			
-			System.out.println(row + " date: " + date );
 		} else if (row == 4) { // SUMMERY -- team data
 			dataString = splitDataString(currentLine);
-			System.out.println(row + " " + dataString);
 			
 			String[] dataStringArr = dataString.split("-");
 			String homeTeam = dataStringArr[0];
@@ -108,12 +121,8 @@ public class ICSCalendarParseService {
 			game.setHomeTeam(homeTeam);
 			game.setGuestTeam(guestTeam);
 			
-			System.out.println("\t homeTeam: " + game.getHomeTeam());
-			System.out.println("\tguestTeam: " + game.getGuestTeam());
 			gameData.setSummery(game);
-			
 		} else if (row == 5) { // LOCATION -- adress data
-			System.out.println(row + " " + currentLine);
 			dataString = splitDataString(currentLine);
 			
 			if (!dataString.equals("LOCATION")) {
@@ -123,11 +132,10 @@ public class ICSCalendarParseService {
 				String city = stringLocationArr[2].trim();
 				
 				gameLocation = new GameLocation(street, zip, city);
-				game.setLocation(gameLocation);
-				
-				System.out.println("\t street: "+ game.getLocation().getStreet());
-				System.out.println("\t    plz: "+ game.getLocation().getZip());
-				System.out.println("\t   city: "+ game.getLocation().getCity());
+				gameData.getSummery().setLocation(gameLocation);
+			} else {
+				gameLocation = new GameLocation();
+				gameData.getSummery().setLocation(gameLocation);
 			}
 		} else if (row == 6) { // UID
 		}
@@ -164,18 +172,5 @@ public class ICSCalendarParseService {
 			currentLine = currentLine.split(":")[0];
 		}
 		return currentLine;
-	}
-
-	public File getSystemFile() {
-		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics");
-		File file = new File("");
-
-		try {
-			file = resource.getFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return file;
 	}
 }
