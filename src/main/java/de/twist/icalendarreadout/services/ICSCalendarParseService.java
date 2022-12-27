@@ -60,32 +60,30 @@ public class ICSCalendarParseService {
 		GameLocation gameLocation = new GameLocation();
 		Game game = new Game();
 		
+		GameData gameData = new GameData();
+		
 		// parse data
 		if (row == 1) { // STAMP - updated date of file
 			dataString = splitDataString(currentLine);
 			
-			LocalDate date = getLocalDateFromString(dataString);
-			LocalTime time = getLocalTimeFromString(dataString);
+			Date date = getDateFromString(dataString);
+			gameData.setDtStamp(date);
 			
-			System.out.println(row + " date: " + date + "\ttime: " + time);
+			System.out.println(row + " date: " + gameData.getDtStamp());
 		} else if (row == 2) { // START
 			dataString = splitDataString(currentLine);
 			
-			LocalDate date = getLocalDateFromString(dataString);
-			LocalTime time = getLocalTimeFromString(dataString);
+			Date date = getDateFromString(dataString);
+			gameData.setDtStart(date);
 			
-			LocalDateTime ldt = LocalDateTime.of(date, time);
-			Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-			
-			System.out.println(row + " date: " + date + "\ttime: " + time);
-			System.out.println(out);
+			System.out.println(row + " date: " + gameData.getDtStart());
 		} else if (row == 3) { // END
 			dataString = splitDataString(currentLine);
 			
-			LocalDate date = getLocalDateFromString(dataString);
-			LocalTime time = getLocalTimeFromString(dataString);
+			Date date = getDateFromString(dataString);
+			gameData.setDtEnd(date);
 			
-			System.out.println(row + " date: " + date + "\ttime: " + time);
+			System.out.println(row + " date: " + date );
 		} else if (row == 4) { // SUMMERY -- team data
 			dataString = splitDataString(currentLine);
 			System.out.println(row + " " + dataString);
@@ -122,27 +120,24 @@ public class ICSCalendarParseService {
 		}
 	}
 		
-	private LocalDate getLocalDateFromString(String dataString) {
+	private Date getDateFromString(String dataString) {
 		String[] dateStringArr = dataString.split("T");
 		String dateString = dateStringArr[0];
-		LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.BASIC_ISO_DATE);
+		LocalDate localDate = LocalDate.parse(dateString, DateTimeFormatter.BASIC_ISO_DATE);
+		
+		String timeString = dateStringArr[1].replace("Z", "");
+
+		timeString = timeString.substring(0, 2) + ":" + timeString.substring(2, 4) + ":" + timeString.substring(4, 6);
+		LocalTime localTime = LocalTime.parse(timeString);
+		LocalDateTime ldt = LocalDateTime.of(localDate, localTime);
+		Date date = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 		
 		return date;
 	}
 	
-	private LocalTime getLocalTimeFromString(String dataString) {
-		String[] dateStringArr = dataString.split("T");
-		String timeString = dateStringArr[1].replace("Z", "");
-		
-		timeString = timeString.substring(0, 2) + ":" + timeString.substring(2, 4) + ":" + timeString.substring(4, 6);
-		LocalTime time = LocalTime.parse(timeString);
-		
-		return time;
-	}
-	
-	
 	private String splitDataString(String currentLine) {
 		String [] arr = currentLine.split(":");
+		
 		if (arr.length > 1) {
 			currentLine = currentLine.split(":")[1];
 		} else {
