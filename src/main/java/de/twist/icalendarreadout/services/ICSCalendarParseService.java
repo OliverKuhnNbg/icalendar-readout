@@ -23,6 +23,8 @@ import de.twist.icalendarreadout.models.GameLocation;
 
 @Service
 public class ICSCalendarParseService {
+	
+	private GameData gameData = new GameData();
 
 	public List<GameData> parseCalendarEventsToList(File file) {
 
@@ -36,14 +38,23 @@ public class ICSCalendarParseService {
 				j++;
 				if (currentLine.equals("BEGIN:VEVENT")) {
 					j = 0;
+					gameData = new GameData();
 					System.out.println("\n\teventStart");
 				}
 
 				// --- all lines without single shedule start line "BEGIN:VEVENT" ---
 				if (i > 4 && j > 0) {
 					// filter out single data
-					parseData(j, currentLine);
+					gameData = parseData(j, currentLine, gameData);
 				}
+				
+				if (currentLine.equals("END:VEVENT")) {
+					System.out.println("\n\t GameDate-Obj");
+					System.out.println(gameData.getDtStamp());
+					System.out.println(gameData.getDtStart());
+					System.out.println(gameData.getDtEnd());
+				}
+
 			}
 			
 			br.close();
@@ -55,12 +66,10 @@ public class ICSCalendarParseService {
 		return null;
 	}
 
-	private void parseData(int row, String currentLine) {
+	private GameData parseData(int row, String currentLine, GameData gameData) {
 		String dataString = "";
 		GameLocation gameLocation = new GameLocation();
 		Game game = new Game();
-		
-		GameData gameData = new GameData();
 		
 		// parse data
 		if (row == 1) { // STAMP - updated date of file
@@ -118,6 +127,8 @@ public class ICSCalendarParseService {
 		} else if (row == 6) { // UID
 //			System.out.println(row + " " + currentLine);
 		}
+		
+		return gameData;
 	}
 		
 	private Date getDateFromString(String dataString) {
