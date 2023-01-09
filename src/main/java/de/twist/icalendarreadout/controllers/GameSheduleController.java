@@ -19,13 +19,13 @@ public class GameSheduleController {
 	private ICSCalendarParseService parseService;
 	
 	@GetMapping(value="/get-all-game-dates")
-	public String getAllGameDates() {
+	public List<GameData> getAllGameDates() {
 		System.out.println(parseService.getSystemFile().exists() + "\n\n");
 		File gameSheduleFile = parseService.getSystemFile();
 		List<GameData> eventList = parseService.parseCalendarEventsToList(gameSheduleFile);
 		
 		System.out.println("\namount of events: " + eventList.size());
 		System.out.println(eventList.get(49).getSummery().getLocation().getCity());
-		return "<b>Oli</b>";
+		return eventList;
 	}
 }
