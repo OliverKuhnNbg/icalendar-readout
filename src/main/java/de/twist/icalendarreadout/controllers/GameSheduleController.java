@@ -12,7 +12,7 @@ import de.twist.icalendarreadout.models.GameData;
 import de.twist.icalendarreadout.services.ICSCalendarParseService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class GameSheduleController {
 	
 	@Autowired
