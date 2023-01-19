@@ -1,5 +1,5 @@
 export class GameData {
-	dtStamp: string = ""; 
-   	dtStart: string = "";
-	dtEnd: string = "";
+  dtStamp: string = ""; 
+  dtStart: string = "";
+  dtEnd: string = "";
 }
