@@ -10,11 +10,11 @@ export class GameTimesService {
 
   	private gamesUrl: string;
   	
-	constructor(private http: HttpClient) {
+	constructor(private httpClient: HttpClient) {
 		this.gamesUrl = 'http://localhost:8083/get-all-game-dates';
 	}
 	
 	public findAll(): Observable<GameData[]> {
-		return this.http.get<GameData[]>(this.gamesUrl);
+		return this.httpClient.get<GameData[]>(this.gamesUrl);
 	}
 }
