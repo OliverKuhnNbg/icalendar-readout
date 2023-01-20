@@ -10,15 +10,29 @@ import { GameTimesService } from '../../services/game-times.service'
 export class AllGamesComponent implements OnInit {
 
   dates: GameData[] = [];
-  
-  constructor(private gameTimesService: GameTimesService) { }
+
+  constructor(private gameTimesService: GameTimesService) {
+
+  }
 
   ngOnInit(): void {
     this.gameTimesService.findAll().subscribe( data => {
-      console.log("Test");
       this.dates = data;
-      console.log(this.dates);
     })
   }
 
+  formatApiDate(baseString: string): string {
+    let point = ".";
+    let formattedString =  baseString.split("T")[0];
+
+    formattedString = formattedString.split("-")[2] + point +  formattedString.split("-")[1] + point + formattedString.split("-")[0];
+    return formattedString;
+  }
+
+  formatApiTime(baseString: string): string {
+    let formattedTime =  baseString.split("T")[1];
+
+    formattedTime = formattedTime.split(":")[0] + ":" + formattedTime.split(":")[1] + " Uhr"; 
+    return formattedTime;
+  }
 }
