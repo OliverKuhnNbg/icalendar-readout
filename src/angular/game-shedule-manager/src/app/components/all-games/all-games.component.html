@@ -1,1 +1,30 @@
-<p>all-games works!</p>
+<div class="card my-5">
+  <div class="card-header">
+    <div *ngIf="dates !== undefined && dates[0] !== undefined; else loading_content"><span class="fs-6">last update: {{ formatApiDate(dates[0].dtStamp) }}</span></div>
+
+    <ng-template #loading_content>
+      <div>
+        <h3>Loading</h3>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"># ID</th>
+          <th scope="col">Game</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let date of dates">
+          <td>{{ dates.indexOf(date) + 1 }}</td>
+          <td>{{ formatApiDate(date.dtStart) }} - {{ formatApiTime(date.dtStart) }}</td>
+          <td><a href="mailto:{{ date.dtEnd }}">{{ date.dtEnd }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
