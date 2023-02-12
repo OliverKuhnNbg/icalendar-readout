@@ -30,4 +30,14 @@ public class GameSheduleController {
 		System.out.println(eventList.get(49).getSummery().getLocation().getCity());
 		return eventList;
 	}
+
+	@GetMapping(value="/get-all-game-dates-team")
+	public List<GameData> getAllGameDatesTeam(String team) {
+		System.out.println("test");
+		System.out.println(team);
+		File gameSheduleFile = parseService.getSystemFile();
+		List<GameData> eventList = parseService.parseCalendarEventsToList(gameSheduleFile);
+		
+		return eventList;
+	}
 }
