@@ -1,6 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
 @import './assets/bootstrap-5.2.3-dist/css/bootstrap.min.css';
 
+:root {
+  /* light */
+  --md-sys-color-primary-light: #6750a4;
+  --md-sys-color-on-primary-light: #ffffff;
+  --md-sys-color-primary-container-light: #e9ddff;
+  --md-sys-color-on-primary-container-light: #22005d;
+  --md-sys-color-secondary-light: #6750a4;
+  --md-sys-color-on-secondary-light: #ffffff;
+  --md-sys-color-secondary-container-light: #e9ddff;
+  --md-sys-color-on-secondary-container-light: #22005d;
+  --md-sys-color-tertiary-light: #984700;
+  --md-sys-color-on-tertiary-light: #ffffff;
+  --md-sys-color-tertiary-container-light: #ffdbc8;
+  --md-sys-color-on-tertiary-container-light: #321300;
+  --md-sys-color-error-light: #ba1a1a;
+  --md-sys-color-error-container-light: #ffdad6;
+  --md-sys-color-on-error-light: #ffffff;
+  --md-sys-color-on-error-container-light: #410002;
+  --md-sys-color-background-light: #fffbff;
+  --md-sys-color-on-background-light: #1c1b1e;
+  --md-sys-color-surface-light: #fffbff;
+  --md-sys-color-on-surface-light: #1c1b1e;
+  --md-sys-color-surface-variant-light: #e7e0eb;
+  --md-sys-color-on-surface-variant-light: #49454e;
+  --md-sys-color-outline-light: #7a757f;
+  --md-sys-color-inverse-on-surface-light: #f4eff4;
+  --md-sys-color-inverse-surface-light: #313033;
+  --md-sys-color-inverse-primary-light: #cfbcff;
+  --md-sys-color-shadow-light: #000000;
+  --md-sys-color-surface-tint-light: #6750a4;
+  --md-sys-color-outline-variant-light: #cac4cf;
+  --md-sys-color-scrim-light: #000000;
+
+  /* dark */
+  --md-sys-color-primary-dark: #cfbcff;
+  --md-sys-color-on-primary-dark: #381e72;
+  --md-sys-color-primary-container-dark: #4f378a;
+  --md-sys-color-on-primary-container-dark: #e9ddff;
+  --md-sys-color-secondary-dark: #cfbdff;
+  --md-sys-color-on-secondary-dark: #371e73;
+  --md-sys-color-secondary-container-dark: #4e378a;
+  --md-sys-color-on-secondary-container-dark: #e9ddff;
+  --md-sys-color-tertiary-dark: #ffb68a;
+  --md-sys-color-on-tertiary-dark: #522300;
+  --md-sys-color-tertiary-container-dark: #743500;
+  --md-sys-color-on-tertiary-container-dark: #ffdbc8;
+  --md-sys-color-error-dark: #ffb4ab;
+  --md-sys-color-error-container-dark: #93000a;
+  --md-sys-color-on-error-dark: #690005;
+  --md-sys-color-on-error-container-dark: #ffdad6;
+  --bg-theme-dark: #1c1b1e;
+  --bg-theme-dark-50alpha: #1c1b1e80;
+  --on-bg-theme-dark: #e6e1e6;
+  --md-sys-color-surface-dark: #1c1b1e;
+  --md-sys-color-on-surface-dark: #e6e1e6;
+  --md-sys-color-surface-variant-dark: #49454e;
+  --md-sys-color-on-surface-variant-dark: #cac4cf;
+  --md-sys-color-outline-dark: #948f99;
+  --md-sys-color-inverse-on-surface-dark: #1c1b1e;
+  --md-sys-color-inverse-surface-dark: #e6e1e6;
+  --md-sys-color-inverse-primary-dark: #6750a4;
+  --md-sys-color-shadow-dark: #000000;
+  --md-sys-color-surface-tint-dark: #cfbcff;
+  --md-sys-color-outline-variant-dark: #49454e;
+  --md-sys-color-scrim-dark: #000000;
+}
 
 .app-background {
   background-image: url(./assets/images/urbanCourtBW.png) no-repeat center center fixed; 
