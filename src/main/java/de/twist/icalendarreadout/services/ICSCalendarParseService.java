@@ -56,7 +56,7 @@ public class ICSCalendarParseService {
 				if (currentLine.equals("BEGIN:VEVENT")) {
 					j = 0;
 					gameData = new GameData();
-					System.out.println("\n\teventStart");
+//					System.out.println("\n\teventStart");
 				}
 
 				if (i > 4 && j > 0) {
@@ -64,18 +64,18 @@ public class ICSCalendarParseService {
 				}
 
 				if (currentLine.equals("END:VEVENT")) {
-					System.out.println("\n\t GameDate-Obj");
-					System.out.println(gameData.getDtStamp());
-					System.out.println(gameData.getDtStart());
-					System.out.println(gameData.getDtEnd());
-					
-					System.out.println("\n\t summery");
-					System.out.println(gameData.getSummery().getHomeTeam());
-					System.out.println(gameData.getSummery().getGuestTeam());
-					System.out.println("\n\t location");
-					System.out.println(gameData.getSummery().getLocation().getCity());
-					System.out.println(gameData.getSummery().getLocation().getZip());
-					System.out.println(gameData.getSummery().getLocation().getStreet());
+//					System.out.println("\n\t GameDate-Obj");
+//					System.out.println(gameData.getDtStamp());
+//					System.out.println(gameData.getDtStart());
+//					System.out.println(gameData.getDtEnd());
+//					
+//					System.out.println("\n\t summery");
+//					System.out.println(gameData.getSummery().getHomeTeam());
+//					System.out.println(gameData.getSummery().getGuestTeam());
+//					System.out.println("\n\t location");
+//					System.out.println(gameData.getSummery().getLocation().getCity());
+//					System.out.println(gameData.getSummery().getLocation().getZip());
+//					System.out.println(gameData.getSummery().getLocation().getStreet());
 					eventList.add(gameData);
 				}
 			}

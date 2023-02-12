@@ -5,7 +5,7 @@ import { GameTimesService } from '../../services/game-times.service'
 @Component({
   selector: 'app-all-games',
   templateUrl: './all-games.component.html',
-  styleUrls: ['./all-games.component.css']
+  styleUrls: ['./all-games.component.scss']
 })
 export class AllGamesComponent implements OnInit {
 

@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/bootstrap-5.2.3-dist/css/bootstrap.min.css';
+
+:root {
+  --md-source: #6750a4;
+  /* primary */
+  --md-ref-palette-primary0: #000000;
+  --md-ref-palette-primary10: #22005d;
+  --md-ref-palette-primary20: #381e72;
+  --md-ref-palette-primary25: #432b7e;
+  --md-ref-palette-primary30: #4f378a;
+  --md-ref-palette-primary35: #5b4397;
+  --md-ref-palette-primary40: #6750a4;
+  --md-ref-palette-primary50: #8069bf;
+  --md-ref-palette-primary60: #9a83db;
+  --md-ref-palette-primary70: #b69df8;
+  --md-ref-palette-primary80: #cfbcff;
+  --md-ref-palette-primary90: #e9ddff;
+  --md-ref-palette-primary95: #f6eeff;
+  --md-ref-palette-primary98: #fdf7ff;
+  --md-ref-palette-primary99: #fffbff;
+  --md-ref-palette-primary100: #ffffff;
+  /* secondary */
+  --md-ref-palette-secondary0: #000000;
+  --md-ref-palette-secondary10: #22005d;
+  --md-ref-palette-secondary20: #371e73;
+  --md-ref-palette-secondary25: #432b7e;
+  --md-ref-palette-secondary30: #4e378a;
+  --md-ref-palette-secondary35: #5a4397;
+  --md-ref-palette-secondary40: #6750a4;
+  --md-ref-palette-secondary50: #8069bf;
+  --md-ref-palette-secondary60: #9a83db;
+  --md-ref-palette-secondary70: #b59df8;
+  --md-ref-palette-secondary80: #cfbdff;
+  --md-ref-palette-secondary90: #e9ddff;
+  --md-ref-palette-secondary95: #f6eeff;
+  --md-ref-palette-secondary98: #fdf7ff;
+  --md-ref-palette-secondary99: #fffbff;
+  --md-ref-palette-secondary100: #ffffff;
+  /* tertiary */
+  --md-ref-palette-tertiary0: #000000;
+  --md-ref-palette-tertiary10: #321300;
+  --md-ref-palette-tertiary20: #522300;
+  --md-ref-palette-tertiary25: #632c00;
+  --md-ref-palette-tertiary30: #743500;
+  --md-ref-palette-tertiary35: #863e00;
+  --md-ref-palette-tertiary40: #984700;
+  --md-ref-palette-tertiary50: #be5b00;
+  --md-ref-palette-tertiary60: #e66f00;
+  --md-ref-palette-tertiary70: #ff8d3d;
+  --md-ref-palette-tertiary80: #ffb68a;
+  --md-ref-palette-tertiary90: #ffdbc8;
+  --md-ref-palette-tertiary95: #ffede5;
+  --md-ref-palette-tertiary98: #fff8f5;
+  --md-ref-palette-tertiary99: #fffbff;
+  --md-ref-palette-tertiary100: #ffffff;
+  /* neutral */
+  --md-ref-palette-neutral0: #000000;
+  --md-ref-palette-neutral10: #1c1b1e;
+  --md-ref-palette-neutral20: #313033;
+  --md-ref-palette-neutral25: #3d3b3e;
+  --md-ref-palette-neutral30: #48464a;
+  --md-ref-palette-neutral35: #545156;
+  --md-ref-palette-neutral40: #605d62;
+  --md-ref-palette-neutral50: #79767a;
+  --md-ref-palette-neutral60: #938f94;
+  --md-ref-palette-neutral70: #aeaaae;
+  --md-ref-palette-neutral80: #cac5ca;
+  --md-ref-palette-neutral90: #e6e1e6;
+  --md-ref-palette-neutral95: #f4eff4;
+  --md-ref-palette-neutral98: #fdf8fd;
+  --md-ref-palette-neutral99: #fffbff;
+  --md-ref-palette-neutral100: #ffffff;
+  /* neutral-variant */
+  --md-ref-palette-neutral-variant0: #000000;
+  --md-ref-palette-neutral-variant10: #1d1a22;
+  --md-ref-palette-neutral-variant20: #322f38;
+  --md-ref-palette-neutral-variant25: #3d3a43;
+  --md-ref-palette-neutral-variant30: #49454e;
+  --md-ref-palette-neutral-variant35: #54515a;
+  --md-ref-palette-neutral-variant40: #615d66;
+  --md-ref-palette-neutral-variant50: #7a757f;
+  --md-ref-palette-neutral-variant60: #948f99;
+  --md-ref-palette-neutral-variant70: #afa9b4;
+  --md-ref-palette-neutral-variant80: #cac4cf;
+  --md-ref-palette-neutral-variant90: #e7e0eb;
+  --md-ref-palette-neutral-variant95: #f5eefa;
+  --md-ref-palette-neutral-variant98: #fdf7ff;
+  --md-ref-palette-neutral-variant99: #fffbff;
+  --md-ref-palette-neutral-variant100: #ffffff;
+  /* error */
+  --md-ref-palette-error0: #000000;
+  --md-ref-palette-error10: #410002;
+  --md-ref-palette-error20: #690005;
+  --md-ref-palette-error25: #7e0007;
+  --md-ref-palette-error30: #93000a;
+  --md-ref-palette-error35: #a80710;
+  --md-ref-palette-error40: #ba1a1a;
+  --md-ref-palette-error50: #de3730;
+  --md-ref-palette-error60: #ff5449;
+  --md-ref-palette-error70: #ff897d;
+  --md-ref-palette-error80: #ffb4ab;
+  --md-ref-palette-error90: #ffdad6;
+  --md-ref-palette-error95: #ffedea;
+  --md-ref-palette-error98: #fff8f7;
+  --md-ref-palette-error99: #fffbff;
+  --md-ref-palette-error100: #ffffff;
+  /* light */
+  --md-sys-color-primary-light: #6750a4;
+  --md-sys-color-on-primary-light: #ffffff;
+  --md-sys-color-primary-container-light: #e9ddff;
+  --md-sys-color-on-primary-container-light: #22005d;
+  --md-sys-color-secondary-light: #6750a4;
+  --md-sys-color-on-secondary-light: #ffffff;
+  --md-sys-color-secondary-container-light: #e9ddff;
+  --md-sys-color-on-secondary-container-light: #22005d;
+  --md-sys-color-tertiary-light: #984700;
+  --md-sys-color-on-tertiary-light: #ffffff;
+  --md-sys-color-tertiary-container-light: #ffdbc8;
+  --md-sys-color-on-tertiary-container-light: #321300;
+  --md-sys-color-error-light: #ba1a1a;
+  --md-sys-color-error-container-light: #ffdad6;
+  --md-sys-color-on-error-light: #ffffff;
+  --md-sys-color-on-error-container-light: #410002;
+  --md-sys-color-background-light: #fffbff;
+  --md-sys-color-on-background-light: #1c1b1e;
+  --md-sys-color-surface-light: #fffbff;
+  --md-sys-color-on-surface-light: #1c1b1e;
+  --md-sys-color-surface-variant-light: #e7e0eb;
+  --md-sys-color-on-surface-variant-light: #49454e;
+  --md-sys-color-outline-light: #7a757f;
+  --md-sys-color-inverse-on-surface-light: #f4eff4;
+  --md-sys-color-inverse-surface-light: #313033;
+  --md-sys-color-inverse-primary-light: #cfbcff;
+  --md-sys-color-shadow-light: #000000;
+  --md-sys-color-surface-tint-light: #6750a4;
+  --md-sys-color-outline-variant-light: #cac4cf;
+  --md-sys-color-scrim-light: #000000;
+
+  /* dark */
+  --md-sys-color-primary-dark: #cfbcff;
+  --md-sys-color-on-primary-dark: #381e72;
+  --color-primary-container-dark: #4f378a;
+  --on-primary-container-dark: #e9ddff;
+  --md-sys-color-secondary-dark: #cfbdff;
+  --md-sys-color-on-secondary-dark: #371e73;
+  --secondary-container-dark: #4e378a;
+  --on-secondary-container-dark: #e9ddff;
+  --md-sys-color-tertiary-dark: #ffb68a;
+  --md-sys-color-on-tertiary-dark: #522300;
+  --tertiary-container-dark: #743500;
+  --on-tertiary-container-dark: #ffdbc8;
+  --md-sys-color-error-dark: #ffb4ab;
+  --md-sys-color-error-container-dark: #93000a;
+  --md-sys-color-on-error-dark: #690005;
+  --md-sys-color-on-error-container-dark: #ffdad6;
+  --bg-theme-dark: #1c1b1e;
+  --bg-theme-dark-50alpha: #1c1b1e80;
+  --bg-theme-dark-80alpha: #1c1b1eCC;
+  --on-bg-theme-dark: #e6e1e6;
+  --md-sys-color-surface-dark: #1c1b1e;
+  --md-sys-color-on-surface-dark: #e6e1e6;
+  --md-sys-color-surface-variant-dark: #49454e;
+  --md-sys-color-on-surface-variant-dark: #cac4cf;
+  --md-sys-color-outline-dark: #948f99;
+  --md-sys-color-inverse-on-surface-dark: #1c1b1e;
+  --md-sys-color-inverse-surface-dark: #e6e1e6;
+  --md-sys-color-inverse-primary-dark: #6750a4;
+  --md-sys-color-shadow-dark: #000000;
+  --md-sys-color-surface-tint-dark: #cfbcff;
+  --md-sys-color-outline-variant-dark: #49454e;
+  --md-sys-color-scrim-dark: #000000;
+}
+
+.app-background {
+  background-image: url(./assets/images/urbanCourtBW.png) no-repeat center center fixed; 
+  background:linear-gradient(to right, var(--bg-theme-dark-50alpha) 0%,  var(--bg-theme-dark-80alpha) 50%), url(./assets/images/urbanCourtBW.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg-dark-theme {
+  background: var(--bg-theme-dark);
+}
+
+.btn-primary-dark {
+    --bs-btn-color: #e9ddff;
+    --bs-btn-bg: #4f378a;
+    --bs-btn-border-color: #4f378a;
+    --bs-btn-hover-color: #e9ddff;
+    --bs-btn-hover-bg: var(--md-ref-palette-primary50);
+    --bs-btn-hover-border-color: var(--md-ref-palette-primary35);
+    --bs-btn-focus-shadow-rgb: 49,50,300;
+    --bs-btn-active-color: #e9ddff;
+    --bs-btn-active-bg: var(--md-ref-palette-primary40);
+    --bs-btn-active-border-color: var(--md-ref-palette-primary35);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #e9ddff;
+    --bs-btn-disabled-bg: #4f378a;
+    --bs-btn-disabled-border-color: #4f378a;
+}
