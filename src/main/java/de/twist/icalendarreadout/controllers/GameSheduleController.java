@@ -35,7 +35,7 @@ public class GameSheduleController {
 	public List<GameData> getAllGameDatesTeam(String team) {
 		System.out.println("test");
 		System.out.println(team);
-		File gameSheduleFile = parseService.getSystemFile();
+		File gameSheduleFile = parseService.getSystemFile(team);
 		List<GameData> eventList = parseService.parseCalendarEventsToList(gameSheduleFile);
 		
 		return eventList;
