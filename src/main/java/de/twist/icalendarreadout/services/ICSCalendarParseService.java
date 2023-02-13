@@ -43,19 +43,19 @@ public class ICSCalendarParseService {
 	
 	/** get File */
 	public File getSystemFile(String teamId) {
-		System.out.println("team ID: " +teamId);
 		String path = "Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics";
+		
 		if(teamId.equals("h1")) {
 			System.out.println("herren 1");
-			path = "games-shedules/male1/Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics";
+			path = "game-shedules/male1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
 		} else if (teamId.equals("h2")) {
 			System.out.println("herren 2");
-			path = "games-shedules/male2/Spielplan_HEA-MS_12-02-2023_bis_26-03-2023.ics";
+			path = "game-shedules/male2/Spielplan_HEA-MS_12-02-2023_bis_26-03-2023.ics";
 		} else if (teamId.equals("f1")) {
 			System.out.println("damen1");
-			path = "games-shedules/female1/Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics";
+			path = "game-shedules/female1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
 		}
-		Resource resource = new ClassPathResource("Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics");
+		Resource resource = new ClassPathResource(path);
 		File file = new File("");
 
 		try {
