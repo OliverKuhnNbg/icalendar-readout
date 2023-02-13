@@ -43,7 +43,7 @@ public class ICSCalendarParseService {
 	
 	/** get File */
 	public File getSystemFile(String teamId) {
-		String path = "Spielplan_N-PMS_21-12-2022_bis_26-03-2023.ics";
+		String path = "game-shedules/male1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
 		
 		if(teamId.equals("h1")) {
 			System.out.println("herren 1");
