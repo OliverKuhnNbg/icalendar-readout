@@ -40,6 +40,42 @@ public class ICSCalendarParseService {
 
 		return file;
 	}
+
+	/** get File */
+	public File getSystemFileViaPath(String path) {
+		Resource resource = new ClassPathResource(path);
+		File file = new File("");
+
+		try {
+			file = resource.getFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return file;
+	}
+
+	/** get File */
+	public File getSystemFile(String teamId) {
+		String path = "game-shedules/male1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
+		
+		if(teamId != null) {
+			if(teamId.equals("h1")) {
+				System.out.println("herren 1");
+				path = "game-shedules/male1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
+			} else if (teamId.equals("h2")) {
+				System.out.println("herren 2");
+				path = "game-shedules/male2/Spielplan_HEA-MS_12-02-2023_bis_26-03-2023.ics";
+			} else if (teamId.equals("f1")) {
+				System.out.println("damen1");
+				path = "game-shedules/female1/Spielplan_N-PMS_12-02-2023_bis_26-03-2023.ics";
+			}
+		}
+
+		File file =  getSystemFileViaPath(path);
+
+		return file;
+	}
 	
 	/** parse File and generate Game Data List */
 	public List<GameData> parseCalendarEventsToList(File file) {
